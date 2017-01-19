@@ -1,6 +1,19 @@
+
 .App{
+	align-self: center;
+	width: 70vw;
+	height: 100%;
+}
+
+#root{
+	height: 100%;
 	padding: 10px;
 	display: flex;
-	flex-direction: column;
-	position: relative;
+	align-items: flex-start;
+	justify-content: center;
+	background: linear-gradient(141deg,rgba(228, 220, 179, 0.41),rgba(30, 86, 187, 0.24));
+	background-size: 100%;
+	position: absolute;
+	width: 100vw;
 }
+

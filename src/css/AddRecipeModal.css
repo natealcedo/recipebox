@@ -1,18 +1,31 @@
-button{
+.Modal button{
 	margin-right: 5px;
 }
 
-.notification{
+.Modal .notification{
 	color: #B22222;
 }
 
-.overlay {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color:rgba(0, 0, 0, 0.85);
-    z-index: 1;
-    color:white;
+.Modal{
+    height: 300px;
+	width: 70vw;
+    background-color: white;
+    position: 0, 0, 0, 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    
+    /*Transition*/
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.1s linear 300ms, opacity 200ms ease;
+}
+
+.show{
+    visibility: visible;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.1s linear 0s, opacity 200ms ease;
+    
+
 }

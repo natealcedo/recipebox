@@ -12,7 +12,7 @@ let AddRecipeModal = ({onClick}) => {
 	let recipeNotification;
 	let ingredientsNotification;
 	return (
-		<div>
+		<div className='Modal'>
 			<form>
 				<label>Recipe</label>
 				<input className='form-control' type="text" label="Recipe" placeholder="Recipe Name" ref={ref=> {recipe = ref;}}/>
@@ -23,19 +23,21 @@ let AddRecipeModal = ({onClick}) => {
 				<label className='notification'ref={ref=> ingredientsNotification = ref }></label>
 				<br/>
 				<button type='submit' className='btn btn-primary' onClick={(e)=>{
+
+					// Ensure form is not empty
 					e.preventDefault();
 					if(!recipe.value){
 						recipeNotification.innerHTML = 'Value Required';
 					}
 					if(recipe.value){
-						recipeNotification.innerHTML = null;
+						recipeNotification.innerHTML = ' ';
 					}
 					if(!ingredients.value){
 						ingredientsNotification.innerHTML = 'Value Required';
 						return;
 					}
 					if(ingredients.value){
-						ingredientsNotification.innerHTML = null;
+						ingredientsNotification.innerHTML = ' ';
 					}
 
 					if(!recipe.value || !ingredients.value){
@@ -46,7 +48,10 @@ let AddRecipeModal = ({onClick}) => {
 					ingredients.value = null;
 
 				}}>Add Recipe</button>
-				<button className='btn btn-danger'>Close</button>
+				<button onClick={(e)=>{
+					e.preventDefault();
+					document.getElementsByClassName('Modal')[0].classList.remove('show');
+				}}className='btn btn-danger'>Close</button>
 			</form>
 		</div>
 	);

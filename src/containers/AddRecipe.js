@@ -3,9 +3,7 @@ import '../css/AddRecipeModal.css';
 
 const AddRecipe = () => {
 	const showModal = () => {
-		console.log('button Clicked!');
-		let root = document.getElementById('root');
-		root.classList.toggle('overlay');
+		document.getElementsByClassName('Modal')[0].classList.add('show');
 	};
 	return (
 		<div className="form-group">
@@ -13,11 +11,5 @@ const AddRecipe = () => {
 		</div>
 	);
 };
-
-// const mapDispatchToProps = () => {
-// 	return {
-
-// 	};
-// };
 
 export default AddRecipe;
