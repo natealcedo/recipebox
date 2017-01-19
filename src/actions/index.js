@@ -1,6 +1,7 @@
 export const ADD_RECIPE = 'ADD_RECIPE';
 export const DELETE_RECIPE = 'DELETE_RECIPE';
 export const EDIT_RECIPE = 'EDIT_RECIPE';
+export const TOGGLE_RECIPE = 'TOGGLE_RECIPE';
 
 let id = 0;
 
@@ -29,5 +30,12 @@ const deleteRecipe = (id) => {
 	};
 };
 
+const toggleRecipe = (id) => {
+	return {
+		type: TOGGLE_RECIPE,
+		id
+	};
+};
 
-export { addRecipe, editRecipe, deleteRecipe };
+
+export { addRecipe, editRecipe, deleteRecipe, toggleRecipe };
