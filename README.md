@@ -11,6 +11,7 @@ this application using the create react app in conjunction with redux.
 - DELETE_RECIPE
 - EDIT_RECIPE
 - TOGGLE_RECIPE
+- SHOW_MODAL
 
 #### UI state
 
@@ -94,3 +95,9 @@ The tests associated with the redux store can be found in
 > recipe-box/src/tests
 
 
+## Structure of Application
+---
+	<app>
+		<recipeContainer></recipeContainer>
+		<AddRecipe></AddRecipe>
+	</app>
