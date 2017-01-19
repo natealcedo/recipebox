@@ -88,4 +88,9 @@ Instead of submitting a form which adds a recipe, edit the currently selected.
 		}
 	}
 
+## Tests
+
+The tests associated with the redux store can be found in 
+> recipe-box/src/tests
+
 
