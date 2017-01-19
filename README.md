@@ -1,7 +1,7 @@
 # FreeCodeCamp: Build a recipe box
 
 Instead of using codepen to do this challenge, I believed that it would be better to implement
-this application using the create react app. 
+this application using the create react app in conjunction with redux.
 
 ## Actions 
 
@@ -10,17 +10,17 @@ this application using the create react app.
 - ADD_RECIPE
 - DELETE_RECIPE
 - EDIT_RECIPE
-- SHOW_RECIPE
+- TOGGLE_RECIPE
 
 #### UI state
 
-View Recipe: Maybe add a dumb component to every recipe that has a class of hidden. Upon
+Toggle Recipe: Maybe add a dumb component to every recipe that has a class of hidden. Upon
 clicking of the component render the component with the data.
 
 Edit Recipe: Use the same form component that add recipe uses. 
 Instead of submitting a form which adds a recipe, edit the currently selected.
 
-#### Logic for showing recipe
+#### Logic for Toggle recipe
 	containers
 	    onClickOfRecipe = (id) => {
 	    	(recipes) => {
