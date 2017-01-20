@@ -34,19 +34,18 @@ div.bg-primary li span{
 
 .button-group{
 	background: white;
-	max-width: 24%;
 	text-align: center;
 	justify-content: center;
-	display: flex;
+	display: inline-block;
 	padding: 5px;
 	border-radius: 5px;
 	box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.20);
 }
 
 .button-group > button {
-	  max-width: 50%;
-	  margin-top: 0px;
-	  box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.20);
+	width: 100px;
+	padding: 5px 10px;
+	box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.20);
 }
 
 .example-enter {

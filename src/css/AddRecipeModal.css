@@ -1,6 +1,6 @@
 .Modal{
     height: 300px;
-	width: 70vw;
+	min-width: 70vw;
     background-color: white;
     position: 0, 0, 0, 0;
     padding: 10px;
@@ -13,7 +13,6 @@
     transition: visibility 0.1s linear 300ms, opacity 200ms ease;
     box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.40);
 }
-
 .Modal button{
 	margin-right: 5px;
 }

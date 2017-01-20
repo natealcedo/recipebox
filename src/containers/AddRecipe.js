@@ -7,7 +7,7 @@ const AddRecipe = () => {
 	};
 	return (
 		<nav>
-			<h1>Add Recipes</h1>
+			<h1>List Of Recipes</h1>
 			<div className="form-group">
 				<button onClick={showModal} className='btn btn-default'> Add Recipe</button>
 			</div>
