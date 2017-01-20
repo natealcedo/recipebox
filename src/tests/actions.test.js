@@ -49,4 +49,13 @@ describe('Action Creators', () => {
 
 		expect(actions.toggleRecipe(0)).toEqual(expectedAction);
 	});
+
+	it('should create an action to set the edit mode of a recipe to active', () => {
+		let expectedAction = {
+			type: actions.SET_EDIT_MODE,
+			id: 0
+		};
+
+		expect(actions.setEditMode(0)).toEqual(expectedAction);
+	});
 });

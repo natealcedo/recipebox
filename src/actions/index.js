@@ -2,6 +2,7 @@ export const ADD_RECIPE = 'ADD_RECIPE';
 export const DELETE_RECIPE = 'DELETE_RECIPE';
 export const EDIT_RECIPE = 'EDIT_RECIPE';
 export const TOGGLE_RECIPE = 'TOGGLE_RECIPE';
+export const SET_EDIT_MODE = 'SET_EDIT_MODE';
 
 let id = 0;
 
@@ -37,5 +38,11 @@ const toggleRecipe = (id) => {
 	};
 };
 
+const setEditMode = (id) => {
+	return {
+		type: SET_EDIT_MODE,
+		id
+	};
+};
 
-export { addRecipe, editRecipe, deleteRecipe, toggleRecipe };
+export { addRecipe, editRecipe, deleteRecipe, toggleRecipe, setEditMode };

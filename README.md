@@ -12,6 +12,8 @@ this application using the create react app in conjunction with redux.
 - EDIT_RECIPE
 - TOGGLE_RECIPE
 - SHOW_MODAL
+- SET_EDIT_MODE
+
 
 #### UI state
 
