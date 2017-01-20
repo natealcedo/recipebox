@@ -10,7 +10,7 @@ const addRecipe = (recipe, ingredients) => {
 	return {
 		type: ADD_RECIPE,
 		recipe,
-		ingredients: ingredients.split(',').map(el => el.trim()),
+		ingredients: ingredients.split(',').filter(el => el!== '').map(el => el.trim()),
 		id: id++
 	};
 };
@@ -19,7 +19,7 @@ const editRecipe = (recipe, ingredients, id) => {
 	return {
 		type: EDIT_RECIPE,
 		recipe,
-		ingredients: ingredients.split(',').map(el => el.trim()),
+		ingredients: ingredients.split(',').filter(el => el!== '').map(el => el.trim()),
 		id
 	};
 };
