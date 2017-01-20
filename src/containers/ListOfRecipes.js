@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Recipe from '../components/Recipe';
 import { toggleRecipe, toggleEditMode, deleteRecipe, editRecipe } from '../actions';
 import '../css/ListOfRecipes.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group' ;
 
 let ListOfRecipes = ({recipes, onDeleteClick, deleteRecipe, onEditClick, onRecipeClick, onEditSubmit}) => {
 	let mappedRecipes = recipes.map(el => {
@@ -12,14 +13,21 @@ let ListOfRecipes = ({recipes, onDeleteClick, deleteRecipe, onEditClick, onRecip
 			onEditClick={onEditClick} 
 			onRecipeClick={onRecipeClick} 
 			editMode={el.editMode} 
-			active={el.active} key={el.id} 
+			active={el.active} 
+			key={el.id} 
 			recipe={el}>
 		</Recipe>;
 	});
 	return (
 		<ul className='list'>
-			{mappedRecipes}
+		<ReactCSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500}>
+          {mappedRecipes}
+        </ReactCSSTransitionGroup>
 		</ul>
+			
 	);
 };
 
