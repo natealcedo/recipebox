@@ -37,12 +37,14 @@ const recipe = (state = {}, action) => {
 		if (state.id === action.id) {
 			return {
 				...state,
-				active: !state.active
+				active: !state.active,
+				editing_mode: false,
 			};
 		}
 		return {
 			...state,
-			active: false
+			active: false,
+			editing_mode: false
 		};
 	default:
 		return state;

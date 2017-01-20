@@ -160,12 +160,14 @@ describe('Reducers', () => {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
-			active: false
+			active: false,
+			editing_mode: false
 		}];
 		let expectedState = [{
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
+			editing_mode: false,
 			active: true
 		}];
 
@@ -179,34 +181,40 @@ describe('Reducers', () => {
 			recipe: 'egg',
 			ingredients: [],
 			id: 0,
-			active: false
+			active: false,
+			editing_mode: false,
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
+			editing_mode: false,
 			active: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
-			active: false
+			active: false,
+			editing_mode: false
 		}];
 
 		let expectedState = [{
 			recipe: 'egg',
 			ingredients: [],
 			id: 0,
-			active: false
+			active: false,
+			editing_mode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
-			active: false
+			active: false,
+			editing_mode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
-			active: true
+			active: true,
+			editing_mode: false
 		}];
 
 		let numberOfActiveRecipes =
@@ -227,34 +235,94 @@ describe('Reducers', () => {
 			ingredients: [],
 			id: 0,
 			active: false,
-
+			editing_mode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
-			active: true
+			active: true,
+			editing_mode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
-			active: false
+			active: false,
+			editing_mode: false
 		}];
 
 		let expectedState = [{
 			recipe: 'egg',
 			ingredients: [],
 			id: 0,
-			active: false
+			active: false,
+			editing_mode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
-			active: false
+			active: false,
+			editing_mode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
-			active: true
+			active: true,
+			editing_mode: false
+		}];
+
+		let numberOfActiveRecipes =
+			reducers.recipes(initialState, { type: 'TOGGLE_RECIPE', id: 2 }).reduce((prev, curr) => {
+				if (curr.active) {
+					return prev + 1;
+				}
+				return prev;
+			}, 0);
+
+
+		expect(expectedState).toEqual(reducers.recipes(initialState, { type: 'TOGGLE_RECIPE', id: 2 }));
+		expect(numberOfActiveRecipes).toEqual(1);
+	});
+
+	it('should set editing mode of all other recipes to false when a recipe is set to active', () => {
+		let initialState = [{
+			recipe: 'egg',
+			ingredients: [],
+			id: 0,
+			active: false,
+			editing_mode: false
+
+		}, {
+			recipe: 'egg',
+			ingredients: [],
+			id: 1,
+			active: false,
+			editing_mode: true
+		}, {
+			recipe: 'egg',
+			ingredients: [],
+			id: 2,
+			active: false,
+			editing_mode: false
+		}];
+
+		let expectedState = [{
+			recipe: 'egg',
+			ingredients: [],
+			id: 0,
+			active: false,
+			editing_mode: false
+		}, {
+			recipe: 'egg',
+			ingredients: [],
+			id: 1,
+			active: false,
+			editing_mode: false
+		}, {
+			recipe: 'egg',
+			ingredients: [],
+			id: 2,
+			active: true,
+			editing_mode: false
 		}];
 
 		let numberOfActiveRecipes =
@@ -392,6 +460,6 @@ describe('Reducers', () => {
 			type: 'SET_EDIT_MODE',
 			id: 2
 		}));
-
 	});
+	
 });
