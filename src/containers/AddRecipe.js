@@ -6,9 +6,12 @@ const AddRecipe = () => {
 		document.getElementsByClassName('Modal')[0].classList.add('show');
 	};
 	return (
-		<div className="form-group">
-			<button onClick={showModal}className='btn btn-default'> Add Recipe</button>
-		</div>
+		<nav>
+			<h1>Add Recipes</h1>
+			<div className="form-group">
+				<button onClick={showModal} className='btn btn-default'> Add Recipe</button>
+			</div>
+		</nav>
 	);
 };
 

@@ -6,14 +6,9 @@ import '../css/App.css';
 
 const App = () => {
 	return (
-		<div>
-			<div className='App'>
-				<nav >
-					<h1>Add Recipes</h1>
-					<AddRecipe></AddRecipe>
-				</nav>
+		<div className='App'>
+				<AddRecipe></AddRecipe>
 				<ListOfRecipes></ListOfRecipes>
-			</div>
 			<AddRecipeModal></AddRecipeModal>
 		</div>
 	);
