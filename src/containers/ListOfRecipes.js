@@ -1,21 +1,22 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Recipe from '../components/Recipe';
-import {toggleRecipe} from '../actions';
+import { toggleRecipe, setEditMode, deleteRecipe } from '../actions';
 import '../css/ListOfRecipes.css';
-let ListOfRecipes =  ({recipes, onRecipeClick}) => {
-	let mappedRecipes = recipes.map(el => (
-		<Recipe onRecipeClick={onRecipeClick} key={el.id} recipe={el}></Recipe>
-	));
+
+let ListOfRecipes = ({recipes, onDeleteClick, deleteRecipe, onEditClick, onRecipeClick}) => {
+	let mappedRecipes = recipes.map(el => {
+		return <Recipe onDeleteClick={onDeleteClick} onEditClick={onEditClick} onRecipeClick={onRecipeClick} editMode={el.editMode} active={el.active} key={el.id} recipe={el}></Recipe>;
+	});
 	return (
-		<ul>
+		<ul className='list'>
 			{mappedRecipes}
 		</ul>
 	);
 };
 
 const mapStateToProps = (state) => {
-	return{
+	return {
 		recipes: state.recipes
 	};
 };
@@ -24,8 +25,14 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onRecipeClick: (id) => {
 			dispatch(toggleRecipe(id));
+		},
+		onEditClick: (id) => {
+			dispatch(setEditMode(id));
+		},
+		onDeleteClick: (id) => {
+			dispatch(deleteRecipe(id));
 		}
-	};	
+	};
 };
 
 ListOfRecipes = connect(mapStateToProps, mapDispatchToProps)(ListOfRecipes);

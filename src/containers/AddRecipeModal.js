@@ -47,7 +47,7 @@ let AddRecipeModal = ({onClick}) => {
 					recipe.value = null;
 					ingredients.value = null;
 
-				}}>Add Recipe</button>
+				}}>Submit</button>
 				<button onClick={(e)=>{
 					e.preventDefault();
 					document.getElementsByClassName('Modal')[0].classList.remove('show');
