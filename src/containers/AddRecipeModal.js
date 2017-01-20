@@ -15,11 +15,11 @@ let AddRecipeModal = ({onClick}) => {
 		<div className='Modal'>
 			<form>
 				<label>Recipe</label>
-				<input className='form-control' type="text" label="Recipe" placeholder="Recipe Name" ref={ref=> {recipe = ref;}}/>
+				<input className='form-control' type='text' label='Recipe' placeholder='Recipe Name' ref={ref=> {recipe = ref;}}/>
 				<label className='notification' ref={ref=> recipeNotification = ref }></label>
 				<br/>
 				<label>Ingredients</label>
-				<input className='form-control' type="textarea" label="Ingredients" placeholder="Enter Ingredients,Separated,By Commas" ref={ref => {ingredients = ref;}}/>
+				<input className='form-control' type='textarea' label='Ingredients' placeholder='Enter Ingredients,Separated,By Commas' ref={ref => {ingredients = ref;}}/>
 				<label className='notification'ref={ref=> ingredientsNotification = ref }></label>
 				<br/>
 				<button type='submit' className='btn btn-primary' onClick={(e)=>{
@@ -43,7 +43,7 @@ let AddRecipeModal = ({onClick}) => {
 					if(!recipe.value || !ingredients.value){
 						return;
 					}
-					onClick(recipe.value, ingredients.value);
+					onClick(recipe.value, ingredients.value.trim());
 					recipe.value = null;
 					ingredients.value = null;
 
