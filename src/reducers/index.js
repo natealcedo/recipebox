@@ -21,7 +21,7 @@ const recipe = (state = {}, action) => {
 		}
 		return state;
 	}
-	case 'SET_EDIT_MODE':
+	case 'TOGGLE_EDIT_MODE':
 		if (state.id === action.id) {
 			return {
 				...state,
@@ -62,7 +62,7 @@ const recipes = (state = [], action) => {
 		return state.filter(recipe => recipe.id !== action.id);
 	case 'TOGGLE_RECIPE':
 		return state.map(element => recipe(element, action));
-	case 'SET_EDIT_MODE':
+	case 'TOGGLE_EDIT_MODE':
 		return state.map(element => recipe(element, action));
 	default:
 		return state;

@@ -52,10 +52,10 @@ describe('Action Creators', () => {
 
 	it('should create an action to set the edit mode of a recipe to active', () => {
 		let expectedAction = {
-			type: actions.SET_EDIT_MODE,
+			type: actions.TOGGLE_EDIT_MODE,
 			id: 0
 		};
 
-		expect(actions.setEditMode(0)).toEqual(expectedAction);
+		expect(actions.toggleEditMode(0)).toEqual(expectedAction);
 	});
 });

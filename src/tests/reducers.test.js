@@ -18,9 +18,7 @@ describe('Reducers', () => {
 			type: 'ADD_RECIPE',
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
-			id: 0,
-			active: false,
-			editMode: false
+			id: 0
 		}));
 
 	});
@@ -29,7 +27,22 @@ describe('Reducers', () => {
 		let initialState = [{
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
-			id: 0,
+			id: 1,
+			active: false,
+			editMode: false
+		}];
+
+		let expectedState = [{
+			recipe: 'hotdog',
+			ingredients: ['bread', 'hotdog'],
+			id: 1,
+			active: false,
+			editMode: false
+		},
+		{
+			recipe: 'hotdog',
+			ingredients: ['bread', 'hotdog'],
+			id: 2,
 			active: false,
 			editMode: false
 		}];
@@ -40,31 +53,36 @@ describe('Reducers', () => {
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
 			id: 0,
-			active: false
+			active: false,
+			editMode: false
 		},
 		{
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
 			id: 1,
-			active: false
+			active: false,
+			editMode: true
 		},
 		{
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
 			id: 2,
-			active: false
+			active: false,
+			editMode: false
 		}];
 
 		let expectedState = [{
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
 			id: 0,
-			active: false
+			active: false,
+			editMode: false
 		}, {
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
 			id: 2,
-			active: false
+			active: false,
+			editMode: false
 		}];
 
 		expect(reducers.recipes(initialState, {
@@ -78,7 +96,8 @@ describe('Reducers', () => {
 			recipe: 'test',
 			ingredients: ['testing', 'testing'],
 			id: 2,
-			editMode: true
+			editMode: true,
+			active: false
 		}];
 
 		expect(reducers.recipes(initialState, {
@@ -90,7 +109,8 @@ describe('Reducers', () => {
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
 			id: 2,
-			editMode: false
+			editMode: false,
+			active: false
 		}]);
 	});
 
@@ -99,12 +119,14 @@ describe('Reducers', () => {
 			recipe: 'test',
 			ingredients: ['testing', 'testing'],
 			editMode: true,
+			active: false,
 			id: 2
 		}, {
 			recipe: 'test',
 			ingredients: ['testing', 'testing'],
 			id: 3,
-			editMode: false
+			editMode: false,
+			active: false
 		}];
 
 		expect(reducers.recipes(initialState, {
@@ -116,13 +138,15 @@ describe('Reducers', () => {
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
 			id: 2,
-			editMode: false
+			editMode: false,
+			active: false
 		},
 		{
 			recipe: 'test',
 			ingredients: ['testing', 'testing'],
 			id: 3,
-			editMode: false
+			editMode: false,
+			active: false
 		}]);
 	});
 
@@ -280,12 +304,12 @@ describe('Reducers', () => {
 		}];
 
 		expect(reducers.recipes(initialState, {
-			type: 'SET_EDIT_MODE',
+			type: 'TOGGLE_EDIT_MODE',
 			id: 0
 		})).toEqual(expectedState);
 
 		expect(reducers.recipes(expectedState, {
-			type: 'SET_EDIT_MODE',
+			type: 'TOGGLE_EDIT_MODE',
 			id: 0
 		})).toEqual(initialState);
 	});
@@ -334,7 +358,7 @@ describe('Reducers', () => {
 			editMode: true
 		}];
 		expect(expectedState).toEqual(reducers.recipes(initialState, {
-			type: 'SET_EDIT_MODE',
+			type: 'TOGGLE_EDIT_MODE',
 			id: 2
 		}));
 	});

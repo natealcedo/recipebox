@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Recipe from '../components/Recipe';
-import { toggleRecipe, setEditMode, deleteRecipe, editRecipe } from '../actions';
+import { toggleRecipe, toggleEditMode, deleteRecipe, editRecipe } from '../actions';
 import '../css/ListOfRecipes.css';
 
 let ListOfRecipes = ({recipes, onDeleteClick, deleteRecipe, onEditClick, onRecipeClick, onEditSubmit}) => {
@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(toggleRecipe(id));
 		},
 		onEditClick: (id) => {
-			dispatch(setEditMode(id));
+			dispatch(toggleEditMode(id));
 		},
 		onDeleteClick: (id) => {
 			dispatch(deleteRecipe(id));
