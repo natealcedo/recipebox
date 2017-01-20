@@ -8,7 +8,7 @@ const recipe = (state = {}, action) => {
 			ingredients: action.ingredients,
 			id: action.id,
 			active: false,
-			editing_mode: false
+			editMode: false
 		};
 	case 'EDIT_RECIPE': {
 		if (state.id === action.id) {
@@ -16,6 +16,7 @@ const recipe = (state = {}, action) => {
 				...state,
 				recipe: action.recipe,
 				ingredients: action.ingredients,
+				editMode: false
 			};
 		}
 		return state;
@@ -25,26 +26,26 @@ const recipe = (state = {}, action) => {
 			return {
 				...state,
 				active: false,
-				editing_mode: !state.editing_mode
+				editMode: !state.editMode
 			};
 		}
 		return {
 			...state,
 			active: false,
-			editing_mode: false
+			editMode: false
 		};
 	case 'TOGGLE_RECIPE':
 		if (state.id === action.id) {
 			return {
 				...state,
 				active: !state.active,
-				editing_mode: false,
+				editMode: false,
 			};
 		}
 		return {
 			...state,
 			active: false,
-			editing_mode: false
+			editMode: false
 		};
 	default:
 		return state;
