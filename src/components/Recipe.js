@@ -32,7 +32,7 @@ const Recipe = ({onEditClick, onDeleteClick, editMode, onEditSubmit, onRecipeCli
 					(() => {
 						if (active) {
 							return (
-								<span>
+								<div className='button-group'>
 									<button onClick={(e) => {
 										e.preventDefault();
 										onEditClick(recipe.id);
@@ -41,7 +41,7 @@ const Recipe = ({onEditClick, onDeleteClick, editMode, onEditSubmit, onRecipeCli
 										e.preventDefault();
 										onDeleteClick(recipe.id);
 									}}className='btn btn-danger'>Delete</button>
-								</span>
+								</div>
 							);
 						}
 					})()

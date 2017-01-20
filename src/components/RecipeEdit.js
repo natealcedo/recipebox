@@ -7,7 +7,7 @@ let RecipeEdit = ({onEditSubmit, onEditClick, id,recipe}) => {
 	let ingredients;
 
 	return (
-		<li className='bg-primary form-group'>
+		<div className='bg-primary form-group'>
 			<form>
 				<label>Recipe </label>
 				<input type="text" className='form-control'  defaultValue={recipe.recipe} ref={ref => recipeInput = ref} /><br />
@@ -33,7 +33,7 @@ let RecipeEdit = ({onEditSubmit, onEditClick, id,recipe}) => {
 					onEditClick(id);
 				} }>Cancel</button>
 			</form>
-		</li>
+		</div>
 	);
 };
 
