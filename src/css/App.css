@@ -16,11 +16,25 @@
 	padding: 10px;
 	display: flex;
 	align-items: flex-start;
-	justify-content: center;
+	justify-content: space-around;
 	background: linear-gradient(141deg,rgba(228, 220, 179, 0.41),rgba(30, 86, 187, 0.24));
 	background-size: 100%;
 	position: absolute;
 	width: 100vw;
+	padding: 10px;
 }
 
 
+nav {
+	text-align: center;
+	background: #fdf7ef;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.20);
+	color: grey;
+	
+}
+
+nav h1{
+	/*flex-direction: column;*/
+}

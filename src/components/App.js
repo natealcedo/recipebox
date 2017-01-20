@@ -8,9 +8,11 @@ const App = () => {
 	return (
 		<div>
 			<div className='App'>
-				<h1>List Of Recipes</h1>
+				<nav >
+					<h1>Add Recipes</h1>
+					<AddRecipe></AddRecipe>
+				</nav>
 				<ListOfRecipes></ListOfRecipes>
-				<AddRecipe></AddRecipe>
 			</div>
 			<AddRecipeModal></AddRecipeModal>
 		</div>
