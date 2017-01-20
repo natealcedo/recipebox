@@ -10,10 +10,9 @@ const App = () => {
 			<div className='App'>
 				<h1>List Of Recipes</h1>
 				<ListOfRecipes></ListOfRecipes>
-				<h1>AddRecipe</h1>
 				<AddRecipe></AddRecipe>
 			</div>
-			<AddRecipeModal ></AddRecipeModal>	
+			<AddRecipeModal></AddRecipeModal>
 		</div>
 	);
 };
