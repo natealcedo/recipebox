@@ -12,7 +12,7 @@ describe('Reducers', () => {
 			ingredients: ['bread', 'hotdog'],
 			id: 0,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}];
 		expect(expectedState).toEqual(reducers.recipes([], {
 			type: 'ADD_RECIPE',
@@ -20,7 +20,7 @@ describe('Reducers', () => {
 			ingredients: ['bread', 'hotdog'],
 			id: 0,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}));
 
 	});
@@ -31,43 +31,8 @@ describe('Reducers', () => {
 			ingredients: ['bread', 'hotdog'],
 			id: 0,
 			active: false,
-			editing_mode: false
-		}, {
-			recipe: 'hotdog',
-			ingredients: ['bread', 'hotdog'],
-			id: 1,
-			active: false,
-			editing_mode: false
+			editMode: false
 		}];
-
-		let expectedState = [{
-			recipe: 'hotdog',
-			ingredients: ['bread', 'hotdog'],
-			id: 0,
-			active: false,
-			editing_mode: false
-		}, {
-			recipe: 'hotdog',
-			ingredients: ['bread', 'hotdog'],
-			id: 1,
-			active: false,
-			editing_mode: false
-		}, {
-			recipe: 'hotdog',
-			ingredients: ['bread', 'hotdog'],
-			id: 2,
-			active: false,
-			editing_mode: false
-		}];
-
-		expect(expectedState).toEqual(reducers.recipes(initialState, {
-			type: 'ADD_RECIPE',
-			recipe: 'hotdog',
-			ingredients: ['bread', 'hotdog'],
-			id: 2,
-			active: false,
-			editing_mode: false
-		}));
 	});
 
 	it('should be able to handle a DELETE_RECIPE action', () => {
@@ -112,7 +77,8 @@ describe('Reducers', () => {
 		let initialState = [{
 			recipe: 'test',
 			ingredients: ['testing', 'testing'],
-			id: 2
+			id: 2,
+			editMode: true
 		}];
 
 		expect(reducers.recipes(initialState, {
@@ -123,7 +89,8 @@ describe('Reducers', () => {
 		})).toEqual([{
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
-			id: 2
+			id: 2,
+			editMode: false
 		}]);
 	});
 
@@ -131,11 +98,13 @@ describe('Reducers', () => {
 		let initialState = [{
 			recipe: 'test',
 			ingredients: ['testing', 'testing'],
+			editMode: true,
 			id: 2
 		}, {
 			recipe: 'test',
 			ingredients: ['testing', 'testing'],
-			id: 3
+			id: 3,
+			editMode: false
 		}];
 
 		expect(reducers.recipes(initialState, {
@@ -146,12 +115,14 @@ describe('Reducers', () => {
 		})).toEqual([{
 			recipe: 'hotdog',
 			ingredients: ['bread', 'hotdog'],
-			id: 2
+			id: 2,
+			editMode: false
 		},
 		{
 			recipe: 'test',
 			ingredients: ['testing', 'testing'],
-			id: 3
+			id: 3,
+			editMode: false
 		}]);
 	});
 
@@ -161,13 +132,13 @@ describe('Reducers', () => {
 			ingredients: [],
 			id: 1,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}];
 		let expectedState = [{
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
-			editing_mode: false,
+			editMode: false,
 			active: true
 		}];
 
@@ -176,78 +147,27 @@ describe('Reducers', () => {
 
 	});
 
-	it('should only toggle one recipe when there there are many recipes', () => {
-		let initialState = [{
-			recipe: 'egg',
-			ingredients: [],
-			id: 0,
-			active: false,
-			editing_mode: false,
-		}, {
-			recipe: 'egg',
-			ingredients: [],
-			id: 1,
-			editing_mode: false,
-			active: false
-		}, {
-			recipe: 'egg',
-			ingredients: [],
-			id: 2,
-			active: false,
-			editing_mode: false
-		}];
-
-		let expectedState = [{
-			recipe: 'egg',
-			ingredients: [],
-			id: 0,
-			active: false,
-			editing_mode: false
-		}, {
-			recipe: 'egg',
-			ingredients: [],
-			id: 1,
-			active: false,
-			editing_mode: false
-		}, {
-			recipe: 'egg',
-			ingredients: [],
-			id: 2,
-			active: true,
-			editing_mode: false
-		}];
-
-		let numberOfActiveRecipes =
-			reducers.recipes(initialState, { type: 'TOGGLE_RECIPE', id: 2 }).reduce((prev, curr) => {
-				if (curr.active) {
-					return prev + 1;
-				}
-				return prev;
-			}, 0);
-
-		expect(expectedState).toEqual(reducers.recipes(initialState, { type: 'TOGGLE_RECIPE', id: 2 }));
-		expect(numberOfActiveRecipes).toEqual(1);
-	});
-
 	it('should toggle an active recipe to false when another recipe is toggled', () => {
 		let initialState = [{
 			recipe: 'egg',
 			ingredients: [],
 			id: 0,
-			active: false,
-			editing_mode: false
-		}, {
+			active: true,
+			editMode: false
+		},
+		{
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
-			active: true,
-			editing_mode: false
-		}, {
+			active: false,
+			editMode: false
+		},
+		{
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}];
 
 		let expectedState = [{
@@ -255,19 +175,21 @@ describe('Reducers', () => {
 			ingredients: [],
 			id: 0,
 			active: false,
-			editing_mode: false
-		}, {
+			editMode: false
+		},
+		{
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
 			active: false,
-			editing_mode: false
-		}, {
+			editMode: false
+		},
+		{
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
 			active: true,
-			editing_mode: false
+			editMode: false
 		}];
 
 		let numberOfActiveRecipes =
@@ -289,41 +211,44 @@ describe('Reducers', () => {
 			ingredients: [],
 			id: 0,
 			active: false,
-			editing_mode: false
-
+			editMode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
-			active: false,
-			editing_mode: true
-		}, {
+			active: true,
+			editMode: false
+		},
+		{
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}];
+
 
 		let expectedState = [{
 			recipe: 'egg',
 			ingredients: [],
 			id: 0,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
 			active: false,
-			editing_mode: false
-		}, {
+			editMode: false
+		},
+		{
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
 			active: true,
-			editing_mode: false
+			editMode: false
 		}];
+
 
 		let numberOfActiveRecipes =
 			reducers.recipes(initialState, { type: 'TOGGLE_RECIPE', id: 2 }).reduce((prev, curr) => {
@@ -332,7 +257,6 @@ describe('Reducers', () => {
 				}
 				return prev;
 			}, 0);
-
 
 		expect(expectedState).toEqual(reducers.recipes(initialState, { type: 'TOGGLE_RECIPE', id: 2 }));
 		expect(numberOfActiveRecipes).toEqual(1);
@@ -344,7 +268,7 @@ describe('Reducers', () => {
 			ingredients: [],
 			id: 0,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}];
 
 		let expectedState = [{
@@ -352,67 +276,20 @@ describe('Reducers', () => {
 			ingredients: [],
 			id: 0,
 			active: false,
-			editing_mode: true
+			editMode: true
 		}];
 
 		expect(reducers.recipes(initialState, {
 			type: 'SET_EDIT_MODE',
 			id: 0
 		})).toEqual(expectedState);
+
 		expect(reducers.recipes(expectedState, {
 			type: 'SET_EDIT_MODE',
 			id: 0
 		})).toEqual(initialState);
 	});
 
-	it('should toggle the editing state of a recipe to active and at the same time toggle the edit state of another recipe to false', () => {
-		let initialState = [{
-			recipe: 'egg',
-			ingredients: [],
-			id: 0,
-			active: false,
-			editing_mode: false
-		}, {
-			recipe: 'egg',
-			ingredients: [],
-			id: 1,
-			active: false,
-			editing_mode: true
-		},
-		{
-			recipe: 'egg',
-			ingredients: [],
-			id: 2,
-			active: false,
-			editing_mode: false
-		}];
-
-		let expectedState = [{
-			recipe: 'egg',
-			ingredients: [],
-			id: 0,
-			active: false,
-			editing_mode: false
-		}, {
-			recipe: 'egg',
-			ingredients: [],
-			id: 1,
-			active: false,
-			editing_mode: false
-		},
-		{
-			recipe: 'egg',
-			ingredients: [],
-			id: 2,
-			active: false,
-			editing_mode: true
-		}];
-
-		expect(expectedState).toEqual(reducers.recipes(initialState, {
-			type: 'SET_EDIT_MODE',
-			id: 2
-		}));
-	});
 
 	it('should toggle the active state of all recipes to false when editing mode is active for any recipes', () => {
 		let initialState = [{
@@ -420,20 +297,20 @@ describe('Reducers', () => {
 			ingredients: [],
 			id: 0,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
 			active: true,
-			editing_mode: false
+			editMode: false
 		},
 		{
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}];
 
 		let expectedState = [{
@@ -441,25 +318,51 @@ describe('Reducers', () => {
 			ingredients: [],
 			id: 0,
 			active: false,
-			editing_mode: false
+			editMode: false
 		}, {
 			recipe: 'egg',
 			ingredients: [],
 			id: 1,
 			active: false,
-			editing_mode: false
+			editMode: false
 		},
 		{
 			recipe: 'egg',
 			ingredients: [],
 			id: 2,
 			active: false,
-			editing_mode: true
+			editMode: true
 		}];
 		expect(expectedState).toEqual(reducers.recipes(initialState, {
 			type: 'SET_EDIT_MODE',
 			id: 2
 		}));
 	});
-	
+
+	it('should toggle editing mode of a recipe to false after submitting the edit', () => {
+		let initialState = [{
+			recipe: 'egg',
+			ingredients: [],
+			id: 0,
+			active: false,
+			editMode: true
+		}];
+
+		let expectedState = [{
+			recipe: 'Proper food',
+			ingredients: ['cool', 'story', 'bro'],
+			id: 0,
+			active: false,
+			editMode: false
+		}];
+
+		expect(reducers.recipes(initialState, {
+			type: 'EDIT_RECIPE',
+			recipe: 'Proper food',
+			ingredients: ['cool', 'story', 'bro'],
+			id: 0
+		})).toEqual(expectedState);
+
+	});
+
 });
