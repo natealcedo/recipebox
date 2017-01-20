@@ -1,11 +1,3 @@
-.Modal button{
-	margin-right: 5px;
-}
-
-.Modal .notification{
-	color: #B22222;
-}
-
 .Modal{
     height: 300px;
 	width: 70vw;
@@ -20,6 +12,14 @@
     opacity: 0;
     transition: visibility 0.1s linear 300ms, opacity 200ms ease;
     box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.40);
+}
+
+.Modal button{
+	margin-right: 5px;
+}
+
+.Modal .notification{
+	color: #B22222;
 }
 
 .show{
