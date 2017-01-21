@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/ListOfRecipes.css';
 
 
 let RecipeEdit = ({onEditSubmit, onEditClick, id,recipe}) => {

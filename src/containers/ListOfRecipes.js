@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Recipe from '../components/Recipe';
 import { toggleRecipe, toggleEditMode, deleteRecipe, editRecipe } from '../actions';
-import '../css/ListOfRecipes.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group' ;
 
 let ListOfRecipes = ({recipes, onDeleteClick, deleteRecipe, onEditClick, onRecipeClick, onEditSubmit}) => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/AddRecipeModal.css';
 
 const AddRecipe = () => {
 	const showModal = () => {

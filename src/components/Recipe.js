@@ -1,6 +1,5 @@
 import React from 'react';
 import RecipeEdit from './RecipeEdit';
-import '../css/ListOfRecipes.css';
 
 const Recipe = ({onEditClick, onDeleteClick, editMode, onEditSubmit, onRecipeClick, recipe, active}) => {
 	let ingredients = recipe.ingredients.join(', ');

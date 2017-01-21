@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addRecipe} from '../actions';
-import '../css/AddRecipeModal.css';
 
 let AddRecipeModal = ({onClick}) => {
 	/**

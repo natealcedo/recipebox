@@ -1,3 +1,7 @@
+.App{
+	width: 80vw;
+}
+
 .App > h1{
 	color:#486DB2;
 	font-family: Arial, Helvetica, sans-serif;
@@ -5,6 +9,7 @@
 }
 
 #root{
+
 	position: static;
 	padding: 20px;
 	display: flex;
@@ -30,4 +35,112 @@ html, body{
 	background: linear-gradient(141deg,rgba(228, 220, 179, 0.41),rgba(30, 86, 187, 0.24));	
 	position: absolute;
 	min-height: 100%;
+}
+
+
+.Modal{
+	min-width: 70vw;
+    background-color: white;
+    position: 0, 0, 0, 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    
+    /*Transition*/
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.1s linear 300ms, opacity 200ms ease;
+    box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.40);
+}
+.Modal button{
+	margin-right: 5px;
+}
+
+.Modal .notification{
+	color: #B22222;
+}
+
+.show{
+    visibility: visible;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.1s linear 0s, opacity 200ms ease;
+    
+
+}
+
+button {
+    box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.10);
+}
+
+button.btn.btn-default{
+   box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.10);    
+}
+
+ul.list{
+	padding: 0;
+	list-style: none;
+}
+
+/*Active*/
+div.bg-primary{
+	padding: 10px;
+	margin-top: 10px;
+	padding-bottom: 20px;
+	border-radius: 5px;
+	box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.40);
+	width: 100%;
+
+}
+
+div.bg-primary li {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 2px;
+	
+}
+
+div.bg-primary button{
+	margin: 5px;
+}
+
+
+div.bg-primary li span{
+	word-wrap: break-word;
+}
+
+.button-group{
+	background: white;
+	text-align: center;
+	justify-content: center;
+	display: inline-block;
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.20);
+}
+
+.button-group > button {
+	width: 100px;
+	padding: 5px 10px;
+	box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.20);
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in-out;
 }
