@@ -7,9 +7,9 @@ import '../css/App.css';
 const App = () => {
 	return (
 		<div className='App'>
-				<AddRecipe></AddRecipe>
-				<ListOfRecipes></ListOfRecipes>
 			<AddRecipeModal></AddRecipeModal>
+			<AddRecipe></AddRecipe>
+			<ListOfRecipes></ListOfRecipes>
 		</div>
 	);
 };
